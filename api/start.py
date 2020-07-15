@@ -1,5 +1,6 @@
-from fastapi import FastAPI
-from starlette.middleware.cors import CORSMiddleware
+# from fastapi import FastAPI
+from flask import Flask
+# from starlette.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from zabbix_host_obtain import zabbix_group_obtain as group
 from zabbix_host_obtain import host_per_groups as host_group
@@ -13,9 +14,11 @@ import os
 from db_handler import insert_data, find_data, drop, get_collection
 import time
 
-app = FastAPI()
-app.add_middleware(CORSMiddleware, allow_origins=[
-                   '*'], allow_methods=['*'], allow_headers=['*'])
+app = Flask(__name__)
+
+# app = FastAPI()
+# app.add_middleware(CORSMiddleware, allow_origins=[
+#                    '*'], allow_methods=['*'], allow_headers=['*'])
 
 gropups_list = list()
 
@@ -43,14 +46,13 @@ lista = list()
 id_server_group = list()
 full_sort_dict = dict()
 
-
 # @app.post('/zabb_conf')
+@app.route('/zabb_conf', methods=['POST'])
 def zabbix_conf(data: Zabb_Conf):
 
     # Convert data to dict 
-    zabbix_credentials = data.dict()
+    zabbix_credentials = data
     print(zabbix_credentials)
-    # zabbix_credentials = data
 
         # Drop Database for store new values
     drop('lilipad')
@@ -165,40 +167,42 @@ def zabbix_conf(data: Zabb_Conf):
 
 
 # @app.get('/actual')
-# def actual_send():
-#     list_actual = list()
-#     try:
-#         actuals = get_collection('metrics')
-#         for host in actuals:
-#             del host['_id']
-#             list_actual.append(host)
-#     except:
-#         pass
-#     print(list_actual)
-#     return list_actual
-
+@app.route('/actual', methods=['GET'])
+def actual_send():
+    list_actual = list()
+    try:
+        actuals = get_collection('metrics')
+        for host in actuals:
+            del host['_id']
+            list_actual.append(host)
+    except:
+        pass
+    print(list_actual)
+    return list_actual
 
 # @app.get('/futura')
-# def futura_send():
-#     list_futura = list()
-#     try:
-#         future = get_collection('future')
-#         for host in future:
-#             del host['_id']
-#             list_futura.append(host)
-#     except:
-#         pass
-#     return list_futura
+@app.route('/futura', methods=['GET'])
+def futura_send():
+    list_futura = list()
+    try:
+        future = get_collection('future')
+        for host in future:
+            del host['_id']
+            list_futura.append(host)
+    except:
+        pass
+    return list_futura
 
 
+app.run(host='0.0.0.0', port=8000)
 
-    if __name__ == '__main__':
-        zabbix_conf(    ip ="str",
-    usuario ="str",
-    password ="str",
-    user_actual ="1",
-    user_new ="2",
-    start_time ="2/2/2020",
-    end_time ="3/2/2020"
-)
+#     if __name__ == '__main__':
+#         zabbix_conf({"ip" :"str",
+#     "usuario" :"str",
+#     "password" :"str",
+#     "user_actual" :"1",
+#     "user_new" :"2",
+#     "start_time" :"2/2/2020",
+#     "end_time" :"3/2/2020"}
+# )
         
