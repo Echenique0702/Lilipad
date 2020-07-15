@@ -1,7 +1,5 @@
-fastapi
+flask
 pymongo
-starlette
 pydantic
 pyzabbix
 numpy
-uvicorn
