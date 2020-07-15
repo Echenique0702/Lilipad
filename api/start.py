@@ -44,7 +44,7 @@ id_server_group = list()
 full_sort_dict = dict()
 
 
-@app.post('/zabb_conf')
+# @app.post('/zabb_conf')
 def zabbix_conf(data: Zabb_Conf):
 
     # Convert data to dict 
@@ -164,32 +164,41 @@ def zabbix_conf(data: Zabb_Conf):
     return 'Process Done!!!'
 
 
-@app.get('/actual')
-def actual_send():
-    list_actual = list()
-    try:
-        actuals = get_collection('metrics')
-        for host in actuals:
-            del host['_id']
-            list_actual.append(host)
-    except:
-        pass
-    print(list_actual)
-    return list_actual
+# @app.get('/actual')
+# def actual_send():
+#     list_actual = list()
+#     try:
+#         actuals = get_collection('metrics')
+#         for host in actuals:
+#             del host['_id']
+#             list_actual.append(host)
+#     except:
+#         pass
+#     print(list_actual)
+#     return list_actual
 
 
-@app.get('/futura')
-def futura_send():
-    list_futura = list()
-    try:
-        future = get_collection('future')
-        for host in future:
-            del host['_id']
-            list_futura.append(host)
-    except:
-        pass
-    return list_futura
+# @app.get('/futura')
+# def futura_send():
+#     list_futura = list()
+#     try:
+#         future = get_collection('future')
+#         for host in future:
+#             del host['_id']
+#             list_futura.append(host)
+#     except:
+#         pass
+#     return list_futura
 
 
 
-    
+    if __name__ == '__main__':
+        zabbix_conf(    ip ="str",
+    usuario ="str",
+    password ="str",
+    user_actual ="1",
+    user_new ="2",
+    start_time ="2/2/2020",
+    end_time ="3/2/2020"
+)
+        
