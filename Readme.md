@@ -6,8 +6,6 @@
 
 ## Metodo de Utilizacion ##
 
-### NOTA:En este momento es necesario correr separado el backend, el frontend y la base de datos ###
-
 #### Clonar el repositorio ####
 ```console
 git clone https://github.com/Echenique0702/Lilipad.git
