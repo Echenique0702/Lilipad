@@ -1,0 +1,7 @@
+fastapi
+pymongo
+starlette
+pydantic
+pyzabbix
+numpy
+uvicorn
