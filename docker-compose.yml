@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   front:
     image: node:11.13.0-alpine
     working_dir: "/var/www/app"
@@ -11,3 +12,27 @@ services:
       - ./src/web/Lilipad:/var/www/app
     command: "npm install"
     command: "npm run dev"
+
+  # api:
+  #   image: python:3.8
+  #   working_dir: "/var/api"
+  #   environment:
+  #     - HOST=0.0.0.0
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./src/api/api:/var/api
+  #   command: "pip install -r requeriment.txt"
+  #   command: "python3 start.py"
+
+
+  api:
+    build:
+      context: .
+      dockerfile: ./src/api/Dockerfile
+    image: uvicorn-gunicorn-fastapi
+    ports:
+      - 8000:8000
+    volumes:
+      - ./src/api/api:/app
+    command: "uvicorn --reload --log-level debug --port 8000 --host 0.0.0.0 start:app"

@@ -1,6 +1,6 @@
-# from fastapi import FastAPI
-from flask import Flask
-# from starlette.middleware.cors import CORSMiddleware
+from fastapi import FastAPI
+# from flask import Flask
+from starlette.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from zabbix_host_obtain import zabbix_group_obtain as group
 from zabbix_host_obtain import host_per_groups as host_group
@@ -14,11 +14,11 @@ import os
 from db_handler import insert_data, find_data, drop, get_collection
 import time
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-# app = FastAPI()
-# app.add_middleware(CORSMiddleware, allow_origins=[
-#                    '*'], allow_methods=['*'], allow_headers=['*'])
+app = FastAPI()
+app.add_middleware(CORSMiddleware, allow_origins=[
+                   '*'], allow_methods=['*'], allow_headers=['*'])
 
 gropups_list = list()
 
@@ -46,8 +46,8 @@ lista = list()
 id_server_group = list()
 full_sort_dict = dict()
 
-# @app.post('/zabb_conf')
-@app.route('/zabb_conf', methods=['POST'])
+@app.post('/zabb_conf')
+# @app.route('/zabb_conf', methods=['POST'])
 def zabbix_conf(data: Zabb_Conf):
 
     # Convert data to dict 
@@ -166,8 +166,8 @@ def zabbix_conf(data: Zabb_Conf):
     return 'Process Done!!!'
 
 
-# @app.get('/actual')
-@app.route('/actual', methods=['GET'])
+@app.get('/actual')
+# @app.route('/actual', methods=['GET'])
 def actual_send():
     list_actual = list()
     try:
@@ -180,8 +180,8 @@ def actual_send():
     print(list_actual)
     return list_actual
 
-# @app.get('/futura')
-@app.route('/futura', methods=['GET'])
+@app.get('/futura')
+# @app.route('/futura', methods=['GET'])
 def futura_send():
     list_futura = list()
     try:
@@ -194,7 +194,7 @@ def futura_send():
     return list_futura
 
 
-app.run(host='0.0.0.0', port=8000)
+# app.run(host='0.0.0.0', port=8000)
 
 #     if __name__ == '__main__':
 #         zabbix_conf({"ip" :"str",

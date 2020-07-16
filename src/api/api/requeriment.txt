@@ -1,5 +1,6 @@
-flask
-pymongo
-pydantic
-pyzabbix
-numpy
+{% comment %} Flask==1.0.4 {% endcomment %}
+pymongo==3.10.1
+pydantic==0.7
+pyzabbix==0.8.2
+numpy==1.19.0
+
