@@ -2,7 +2,7 @@
 
 ### Es un software para medir la capacidad de un centro de datos, ademas de estimar la capacidad futura basada en el consumo de usuarios actuales y futuros extrayendo las metricas del software Zabbix ###
 ### Es un software escrito en python (backend), y Nuxt.js (frontend) , utiliza MongoDB como Database ###
-<img src="./src/Lilipad.png" />
+<img src="./src/images/Lilipad.png" />
 
 ## Metodo de Utilizacion ##
 

@@ -1,0 +1,13 @@
+version: "3"
+services:
+  front:
+    image: node:11.13.0-alpine
+    working_dir: "/var/www/app"
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src/web/Lilipad:/var/www/app
+    command: "npm install"
+    command: "npm run dev"

@@ -3,11 +3,11 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _f3482d40 = () => interopDefault(import('../pages/actual.vue' /* webpackChunkName: "pages/actual" */))
-const _2f516314 = () => interopDefault(import('../pages/configuration.vue' /* webpackChunkName: "pages/configuration" */))
-const _55fb65de = () => interopDefault(import('../pages/futura.vue' /* webpackChunkName: "pages/futura" */))
-const _485a8c95 = () => interopDefault(import('../pages/server.vue' /* webpackChunkName: "pages/server" */))
-const _96c4a220 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _d7777550 = () => interopDefault(import('../pages/actual.vue' /* webpackChunkName: "pages/actual" */))
+const _4cffbfc8 = () => interopDefault(import('../pages/configuration.vue' /* webpackChunkName: "pages/configuration" */))
+const _3a2aadee = () => interopDefault(import('../pages/futura.vue' /* webpackChunkName: "pages/futura" */))
+const _5642e88d = () => interopDefault(import('../pages/server.vue' /* webpackChunkName: "pages/server" */))
+const _6abdf3f8 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -27,23 +27,23 @@ export const routerOptions = {
 
   routes: [{
     path: "/actual",
-    component: _f3482d40,
+    component: _d7777550,
     name: "actual"
   }, {
     path: "/configuration",
-    component: _2f516314,
+    component: _4cffbfc8,
     name: "configuration"
   }, {
     path: "/futura",
-    component: _55fb65de,
+    component: _3a2aadee,
     name: "futura"
   }, {
     path: "/server",
-    component: _485a8c95,
+    component: _5642e88d,
     name: "server"
   }, {
     path: "/",
-    component: _96c4a220,
+    component: _6abdf3f8,
     name: "index"
   }],
 
