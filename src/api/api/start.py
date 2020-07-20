@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-# from flask import Flask
 from starlette.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from zabbix_host_obtain import zabbix_group_obtain as group
@@ -8,13 +7,11 @@ from zabbix_host_obtain import zabbix_metrics as metrics
 from zabbix_host_obtain import host_per_server as host_server
 from zabbix_host_obtain import full_sort
 from zabbix_host_obtain import futura
-# from server import zabbix_metrics_server as servers
 import json
 import os
 from db_handler import insert_data, find_data, drop, get_collection
 import time
 
-# app = Flask(__name__)
 
 app = FastAPI()
 app.add_middleware(CORSMiddleware, allow_origins=[
@@ -47,12 +44,10 @@ id_server_group = list()
 full_sort_dict = dict()
 
 @app.post('/zabb_conf')
-# @app.route('/zabb_conf', methods=['POST'])
 def zabbix_conf(data: Zabb_Conf):
 
     # Convert data to dict 
-    zabbix_credentials = data
-    print(zabbix_credentials)
+    zabbix_credentials = data.dict()
 
         # Drop Database for store new values
     drop('lilipad')
@@ -177,11 +172,9 @@ def actual_send():
             list_actual.append(host)
     except:
         pass
-    print(list_actual)
     return list_actual
 
 @app.get('/futura')
-# @app.route('/futura', methods=['GET'])
 def futura_send():
     list_futura = list()
     try:
@@ -194,15 +187,14 @@ def futura_send():
     return list_futura
 
 
-# app.run(host='0.0.0.0', port=8000)
 
 #     if __name__ == '__main__':
 #         zabbix_conf({"ip" :"str",
 #     "usuario" :"str",
 #     "password" :"str",
-#     "user_actual" :"1",
-#     "user_new" :"2",
-#     "start_time" :"2/2/2020",
-#     "end_time" :"3/2/2020"}
+#     "user_actual" :"str",
+#     "user_new" :"str",
+#     "start_time" :"dd/mm/yyyy",
+#     "end_time" :"dd/mm/yyyy"}
 # )
         

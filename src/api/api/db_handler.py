@@ -1,6 +1,6 @@
 import pymongo
 
-conection = pymongo.MongoClient('localhost', 27017)
+conection = pymongo.MongoClient('database', 27017)
 database = conection['lilipad']
 
 

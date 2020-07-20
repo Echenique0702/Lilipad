@@ -1,6 +1,13 @@
 version: "3"
 services:
 
+  database:
+    image: 'mongo'
+    ports:
+      - 0.0.0.0:27017:27017
+    networks:
+      - lilipad
+
   front:
     image: node:11.13.0-alpine
     working_dir: "/var/www/app"
@@ -12,19 +19,8 @@ services:
       - ./src/web/Lilipad:/var/www/app
     command: "npm install"
     command: "npm run dev"
-
-  # api:
-  #   image: python:3.8
-  #   working_dir: "/var/api"
-  #   environment:
-  #     - HOST=0.0.0.0
-  #   ports:
-  #     - "8000:8000"
-  #   volumes:
-  #     - ./src/api/api:/var/api
-  #   command: "pip install -r requeriment.txt"
-  #   command: "python3 start.py"
-
+    networks: 
+      - lilipad
 
   api:
     build:
@@ -36,3 +32,14 @@ services:
     volumes:
       - ./src/api/api:/app
     command: "uvicorn --reload --log-level debug --port 8000 --host 0.0.0.0 start:app"
+    networks: 
+      - lilipad
+    links:
+      - database
+    depends_on:
+      - database
+
+
+networks:
+  lilipad:
+    driver: bridge
