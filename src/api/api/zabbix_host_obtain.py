@@ -12,13 +12,13 @@ from db_handler import get_collection
 
 relation_group_groupip = dict()
 relation_hostname_hostid = dict()
-service_list = ['CPU system time', 'iostat.sda', 'read.sda', 'write.sda', 'RAM-used',
+service_list = ['CPU user time', 'iostat.sda', 'read.sda', 'write.sda', 'RAM-used',
                 'Used disk space on /', 'Incoming network traffic on eth0', 'Outgoing network traffic on eth0']
 
-metric_relation = {'CPU system time': 'cpu_', 'iostat.sda': 'iost_', 'read.sda': 'read_', 'write.sda': 'write_', 'RAM-used': 'ram_',
+metric_relation = {'CPU user time': 'cpu_', 'iostat.sda': 'iost_', 'read.sda': 'read_', 'write.sda': 'write_', 'RAM-used': 'ram_',
                    'Used disk space on /': 'disk_', 'Incoming network traffic on eth0': 'inco_', 'Outgoing network traffic on eth0': 'outc_'}
 
-server_list = ['CPU system time', 'iostat.sda', 'read.sda', 'write.sda', 'RAM-used', 'Total disk space on /',
+server_list = ['CPU user time', 'iostat.sda', 'read.sda', 'write.sda', 'RAM-used', 'Total disk space on /',
                'RAM-total', 'Used disk space on /', 'Incoming network traffic on bond0', 'Outgoing network traffic on bond0']
 
 kvm_list = []
