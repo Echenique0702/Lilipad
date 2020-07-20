@@ -8,19 +8,6 @@ services:
     networks:
       - lilipad
 
-  front:
-    image: node:11.13.0-alpine
-    working_dir: "/var/www/app"
-    environment:
-      - HOST=0.0.0.0
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./src/web/Lilipad:/var/www/app
-    command: "npm install"
-    command: "npm run dev"
-    networks: 
-      - lilipad
 
   api:
     build:
@@ -38,6 +25,24 @@ services:
       - database
     depends_on:
       - database
+
+  front:
+    image: node:11.13.0-alpine
+    working_dir: "/var/www/app"
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src/web/Lilipad:/var/www/app
+    command: "npm install"
+    command: "npm run dev"
+    networks: 
+      - lilipad
+    links:
+      - api
+    depends_on:
+      - api
 
 
 networks:

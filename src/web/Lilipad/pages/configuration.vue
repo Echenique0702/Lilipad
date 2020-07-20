@@ -136,7 +136,7 @@ export default {
       //   this.proxmox_server.push(this.datos)
       // eslint-disable-next-line no-unused-vars
       const data = await this.$axios.post(
-        'http://localhost:8000/zabb_conf',
+        'http://10.8.1.231:8000/zabb_conf',
         this.datos
         // eslint-disable-next-line semi
       );

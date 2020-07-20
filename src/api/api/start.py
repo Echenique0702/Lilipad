@@ -48,7 +48,7 @@ def zabbix_conf(data: Zabb_Conf):
 
     # Convert data to dict 
     zabbix_credentials = data.dict()
-
+    print(zabbix_credentials)
         # Drop Database for store new values
     drop('lilipad')
     

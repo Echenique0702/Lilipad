@@ -28,10 +28,10 @@ export default {
   },
   methods: {
     async show () {
-      this.servers = await this.$axios.$get('http://localhost:8000/server')
+      this.servers = await this.$axios.$get('http://api:8000/server')
     },
     async service () {
-      await this.$axios.$get('http://localhost:8000/services')
+      await this.$axios.$get('http://api:8000/services')
     }
   }
 }

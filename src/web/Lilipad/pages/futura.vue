@@ -73,7 +73,7 @@ export default {
     //   console.log(data)
     // },
     async actual () {
-      this.items = await this.$axios.$get('http://localhost:8000/futura')
+      this.items = await this.$axios.$get('http://10.8.1.231:8000/futura')
     }
   }
 }
