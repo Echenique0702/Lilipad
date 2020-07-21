@@ -12,26 +12,17 @@ git clone https://github.com/Echenique0702/Lilipad.git
 ```
 
 
-#### Database ####
-#####  La base de datos usada es MongoDB, por lo cual para las diferentes instalar y configurar escuchando por el puerto 27017 #####
+#### Correr el proyecto ####
 
-
-#### Correr en frontend ####
+##### La aplicacion esta dockerizada, el unico requerimiento es tener instalado docker-compose donde se valla a correr la aplicacion #####
 
 ```console
-cd Lilipad/web/Lilipad
-npm install
-npm run dev
+cd Lilipad
+docker-compose up
 ```
-
-#### Correr el backend ####
-
+##### Para limpiar el escenario #####
 ```console
-cd Lilipad/api
-pip install -r requeriment.txt
-source start.sh
-```
-
+docker-compose down```
 
 
 ## Preparacion de Zabbix para el uso del software ##
