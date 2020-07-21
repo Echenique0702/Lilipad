@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      Nutrition
+      Tabla Futura
       <v-spacer />
       <v-text-field
         v-model="search"
