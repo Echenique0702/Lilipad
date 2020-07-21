@@ -4,6 +4,14 @@
 ### Es un software escrito en python (backend), y Nuxt.js (frontend) , utiliza MongoDB como Database ###
 <img src="./src/images/Lilipad.png" />
 
+## Explicacion de cada componente##
+
+### Frontend: Es la interfaz al usuario, aqui se añadiran los datos para que puedan ser procesados, IP del servidor Zabbix, Usuario y Contraseña, Usuarios Actuales y Nuevos, y el periodo de tiempo para la extraccion de las metricas, los resultados seran mostrados en dos tablas Actual y Futura ###
+
+### API: Es el core de la aplicacion es la encargada de extraer las metricas de Zabbix, hacer los calculos pertinentes, almacenarlas en la base de datos, devolver las metricas ya depuradas a al frontend ###
+
+#### Database: Almacena los datos que se extraen y procesan desde Zabbix ####
+
 ## Metodo de Utilizacion ##
 
 #### Clonar el repositorio ####
