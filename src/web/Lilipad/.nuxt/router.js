@@ -6,7 +6,6 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _d7777550 = () => interopDefault(import('../pages/actual.vue' /* webpackChunkName: "pages/actual" */))
 const _4cffbfc8 = () => interopDefault(import('../pages/configuration.vue' /* webpackChunkName: "pages/configuration" */))
 const _3a2aadee = () => interopDefault(import('../pages/futura.vue' /* webpackChunkName: "pages/futura" */))
-const _5642e88d = () => interopDefault(import('../pages/server.vue' /* webpackChunkName: "pages/server" */))
 const _6abdf3f8 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
@@ -37,10 +36,6 @@ export const routerOptions = {
     path: "/futura",
     component: _3a2aadee,
     name: "futura"
-  }, {
-    path: "/server",
-    component: _5642e88d,
-    name: "server"
   }, {
     path: "/",
     component: _6abdf3f8,

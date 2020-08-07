@@ -1,0 +1,5 @@
+Version miercoles 22 de Julio del 2020
+-Poner todo al mismo Idioma
+-Calcular las metricas como estan en Zabbix (el problema son los numeros que no salen de la misma forma la tarea es hacerlo mas friendly), ejemplo la RAM en zabbix esta en Gb y en lilipad esta ne kB
+-EL icono del search que esta mal
+-las metricas de capacidad total y porciento de utilizacion no coincide con zabbix

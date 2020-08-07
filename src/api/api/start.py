@@ -46,6 +46,7 @@ full_sort_dict = dict()
 @app.post('/zabb_conf')
 def zabbix_conf(data: Zabb_Conf):
 
+
     # Convert data to dict 
     zabbix_credentials = data.dict()
     print(zabbix_credentials)

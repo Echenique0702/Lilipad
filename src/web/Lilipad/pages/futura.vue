@@ -1,12 +1,12 @@
 <template>
+  <v-app>
   <v-card>
     <v-card-title>
       Tabla Futura
       <v-spacer />
       <v-text-field
         v-model="search"
-        append-icon="search"
-        label="Search"
+        label="Filtrar"
         single-line
         hide-details
       />
@@ -17,6 +17,7 @@
       :search="search"
     />
   </v-card>
+  </v-app>
 </template>
 
 <script>
@@ -55,10 +56,10 @@ export default {
         { text: 'Iostat_max(tps)', value: 'iost_max' },
         { text: 'Read_avg(kB/s)', value: 'read_avg' },
         { text: 'Read_95p(kB/s)', value: 'read_95p' },
-        { text: 'Read_95p(kB/s)', value: 'read_95p' },
+        { text: 'Read_max(kB/s)', value: 'read_max' },
         { text: 'Write_avg(kB/s)', value: 'write_avg' },
-        { text: 'Write_95p(kB/s)', value: 'write_avg' },
-        { text: 'Write_95p(kB/s)', value: 'write_95p' }
+        { text: 'Write_95p(kB/s)', value: 'write_95p' },
+        { text: 'Write_max(kB/s)', value: 'write_max' }
 
       ],
       items: []

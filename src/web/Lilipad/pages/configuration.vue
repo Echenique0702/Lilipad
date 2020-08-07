@@ -34,12 +34,12 @@
             <v-flex xs8>
               <v-text-field
                 v-model="password"
-                :append-icon="mostrar ? 'visibility' : 'visibility_off'"
-                :type="mostrar ? 'text' : 'password'"
+                :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show2 ? 'text' : 'password'"
                 name="input-10-2"
                 class="input-group--focused"
                 label="Password"
-                @click:append="mostrar = !mostrar"
+                @click:append="show2 = !show2"
               />
             </v-flex>
           </v-layout>
@@ -98,6 +98,8 @@ export default {
   data() {
     return {
       server_prox: {},
+
+      show2: false,
       // eslint-disable-next-line quotes
       init: "init",
       datos: {},

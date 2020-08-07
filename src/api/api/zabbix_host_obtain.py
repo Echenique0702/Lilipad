@@ -204,6 +204,30 @@ def zabbix_metrics(ip_zabbix: str, user_zabbix: str, password_zabbix: str, st: s
                                      'avg'] = round((mean(value_avg)*float(dicc_mapping_cpu_host[host['hostid']]))*float(cores), 2)
                         dicc_service[metric_relation[metric] +
                                      '95p'] = round((percentile(array(value_max), 95)*float(dicc_mapping_cpu_host[host['hostid']]))*float(cores), 2)
+                    elif metric == 'RAM-used':
+                        dicc_service[metric_relation[metric] +
+                                     'max'] = round(max(value_max)/(1000**3), 2)
+                        dicc_service[metric_relation[metric] +
+                                     'avg'] = round(mean(value_avg)/(1000**3), 2)
+                        dicc_service[metric_relation[metric] +
+                                     '95p'] = round(percentile(array(value_max)/(1000**3), 95), 2)
+
+                    elif metric == 'Incoming network traffic on eth0' or metric == 'Outgoing network traffic on eth0':
+                        dicc_service[metric_relation[metric] +
+                                     'max'] = round(max(value_max)/(10**6), 2)
+                        dicc_service[metric_relation[metric] +
+                                     'avg'] = round(mean(value_avg)/(10**6), 2)
+                        dicc_service[metric_relation[metric] +
+                                     '95p'] = round(percentile(array(value_max)/(10**6), 95), 2)
+
+                    elif metric == 'Used disk space on /':
+                        dicc_service[metric_relation[metric] +
+                                     'max'] = round(max(value_max)/(4*(10**8)), 2)
+                        dicc_service[metric_relation[metric] +
+                                     'avg'] = round(mean(value_avg)/(4*(10**8)), 2)
+                        dicc_service[metric_relation[metric] +
+                                     '95p'] = round(percentile(array(value_max)/(4*(10**8)), 95), 2)
+                        
                     else:
                         dicc_service[metric_relation[metric] +
                                      'max'] = round(max(value_max), 2)
